@@ -6,6 +6,7 @@ const cors = require('cors');
 const { Pool } = require('pg');
 let e = '';
 const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
     user: 'postgres',
     database: 'postgres',
     password: 'password'
