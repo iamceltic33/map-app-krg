@@ -43,7 +43,7 @@ express()
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.end('Server is running addons'))
   .get('/test', (req, res) => {res.end(JSON.stringify(data))})
-  .get('pg', (req, res)=> {  })
+  .get('/pg', (req, res)=> { res.end(answer) })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 data.parkings.forEach((item)=>{
