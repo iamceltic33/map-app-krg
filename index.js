@@ -14,9 +14,7 @@ const pool = new Pool({
 
 pool.query('SELECT * FROM parkings', (err, res) => {
     if (err) throw err;
-    for (row in res.rows){
-        answer += '!' + JSON.stringify(row);
-    }
+    answer = JSON.stringify(res.rows);
     pool.end()
   })
 
