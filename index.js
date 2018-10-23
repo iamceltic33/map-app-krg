@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 5000
 const cors = require('cors');
 
 const { Pool } = require('pg');
-let e = '';
+let answer = '';
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
     user: 'postgres',
@@ -14,7 +14,9 @@ const pool = new Pool({
 
 pool.query('SELECT * FROM parkings', (err, res) => {
     if (err) throw err;
-
+    for (row in res.rows){
+        answer += '!' + JSON.stringify(row);
+    }
     pool.end()
   })
 
